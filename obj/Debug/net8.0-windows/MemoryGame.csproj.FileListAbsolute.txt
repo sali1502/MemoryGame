@@ -12,3 +12,4 @@ C:\DT071G_Projektuppgift\MemoryGame\obj\Debug\net8.0-windows\refint\MemoryGame.d
 C:\DT071G_Projektuppgift\MemoryGame\obj\Debug\net8.0-windows\MemoryGame.pdb
 C:\DT071G_Projektuppgift\MemoryGame\obj\Debug\net8.0-windows\MemoryGame.genruntimeconfig.cache
 C:\DT071G_Projektuppgift\MemoryGame\obj\Debug\net8.0-windows\ref\MemoryGame.dll
+C:\DT071G_Projektuppgift\MemoryGame\obj\Debug\net8.0-windows\MemoryGame.sourcelink.json
