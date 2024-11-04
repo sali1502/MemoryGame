@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MemoGameProjekt
+namespace MemoryGame
 {
     partial class Form1
     {
@@ -43,10 +43,10 @@ namespace MemoGameProjekt
             {
                 Text = "Börja Spela",
                 Location = new Point(170, 10),
-                Width = 100 
+                Width = 100
             };
             startButton.Click += StartButton_Click;
-            Controls.Add(startButton); 
+            Controls.Add(startButton);
 
             // Topplista
             highScoreLabel = new Label
@@ -62,24 +62,24 @@ namespace MemoGameProjekt
             // Knapp för att rensa topplista
             clearScoresButton = new Button
             {
-                Text = "Rensa Topplista", 
-                Location = new Point(10, 360), 
-                Width = 120, 
-                Visible = false 
+                Text = "Rensa Topplista",
+                Location = new Point(10, 360),
+                Width = 120,
+                Visible = false
             };
-            clearScoresButton.Click += ClearScoresButton_Click; 
-            Controls.Add(clearScoresButton); 
+            clearScoresButton.Click += ClearScoresButton_Click;
+            Controls.Add(clearScoresButton);
 
             // Knapp för att spela en ny omgång
             playAgainButton = new Button
             {
-                Text = "Spela igen", 
+                Text = "Spela igen",
                 Location = new Point(170, 360),
                 Width = 120,
                 Visible = false
             };
-            playAgainButton.Click += PlayAgainButton_Click; 
-            Controls.Add(playAgainButton); 
+            playAgainButton.Click += PlayAgainButton_Click;
+            Controls.Add(playAgainButton);
 
             // inställningar för Form1 (spelfönstret)
             ClientSize = new Size(400, 460);
