@@ -44,3 +44,134 @@ namespace MemoGameProjekt
             CreateButtons(); // Skapa knappar
             Shuffle(images); // Blanda kort (bilder) slumpmässigt
         }
+// Laddar bilder för spelet
+        private void LoadImages()
+        {
+            try
+            {
+                // Laddar in bilder för varje kortpar
+                images[0] = Image.FromFile("Images/earth.jpg");
+                images[1] = Image.FromFile("Images/venus.jpg");
+                images[2] = Image.FromFile("Images/mars.jpg");
+                images[3] = Image.FromFile("Images/jupiter.jpg");
+                images[4] = Image.FromFile("Images/saturn.jpg");
+                images[5] = Image.FromFile("Images/uranus.jpg");
+                images[6] = Image.FromFile("Images/neptune.jpg");
+                images[7] = Image.FromFile("Images/meteor.jpg");
+
+                // Skapar par genom att duplicera bilder
+                for (int i = 0; i < NUM_PAIRED_CARDS; i++)
+                {
+                    images[i + NUM_PAIRED_CARDS] = images[i];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading images: " + ex.Message);
+            }
+        }
+
+        // Skapar knapparna för korten på spelformen
+        private void CreateButtons()
+        {
+            int size = 100; // Knapparnas storlek
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i] = new Button
+                {
+                    Size = new Size(size, size),
+                    Location = new Point((i % 4) * size, (i / 4) * size + 50), // Placering i ett 4x4-rutnät
+                    BackColor = Color.LightSteelBlue,
+                    Tag = i // Varje knapp får ett index för att kunna identifieras
+                };
+                buttons[i].Click += Button_Click; // Kopplar en klickhändelse till knappen
+                Controls.Add(buttons[i]); // Lägger till knappen i formuläret
+            }
+        }
+
+        // Blanda bilder med Fisher-Yates algoritmen
+        private void Shuffle(Image[] array)
+        {
+            Random random = new Random();
+            for (int i = array.Length - 1; i > 0; i--)
+            {
+                int j = random.Next(i + 1);
+                Image temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+
+        // Metod för när en knapp (ett kort) klickas
+        private async void Button_Click(object? sender, EventArgs e)
+        {
+            if (sender is Button clickedButton && clickedButton.Tag is int index)
+            {
+                // Första valda kortet
+                if (firstChoiceIndex == -1)
+                {
+                    firstChoiceIndex = index;
+                    clickedButton.BackgroundImage = images[index];
+                    clickedButton.BackgroundImageLayout = ImageLayout.Zoom;
+                    clickedButton.Enabled = false; // Inaktivera knappen temporärt
+                }
+                // Andra valda kortet
+                else if (secondChoiceIndex == -1 && index != firstChoiceIndex)
+                {
+                    secondChoiceIndex = index;
+                    clickedButton.BackgroundImage = images[index];
+                    clickedButton.BackgroundImageLayout = ImageLayout.Zoom;
+                    clickedButton.Enabled = false;
+                    turns++; // Öka antal försök
+
+                    // Vänta för att visa båda korten
+                    await Task.Delay(1000);
+
+                    // Kontrollera om korten är ett matchande par
+                    CheckForMatch();
+                }
+            }
+        }
+
+        // Kontrollera om de valda korten matchar
+        private void CheckForMatch()
+        {
+            if (images[firstChoiceIndex] != images[secondChoiceIndex])
+            {
+                // Om ingen match, vänd tillbaka korten
+                buttons[firstChoiceIndex].BackgroundImage = null;
+                buttons[secondChoiceIndex].BackgroundImage = null;
+                buttons[firstChoiceIndex].Enabled = true;
+                buttons[secondChoiceIndex].Enabled = true;
+            }
+            else
+            {
+                // Om match, håll korten dolda
+                buttons[firstChoiceIndex].Visible = false;
+                buttons[secondChoiceIndex].Visible = false;
+            }
+
+            ClearChoices(); // Rensa val för nästa omgång
+
+            // Kontrollera om alla par är hittade
+            if (AllMatched() && playerNameTextBox != null)
+            {
+                highScores.Add((playerNameTextBox.Text, turns)); // Lägg till resultat i topplista
+                DisplayHighScores(); // Visa uppdaterad topplista
+                MessageBox.Show($"Grattis! Du har hittat alla par på {turns} försök.");
+                EnableScoreButtons(); // Visa knappar för topplista och spela igen
+            }
+        }
+
+        // Rensa index för valda kort för en ny omgång
+        private void ClearChoices()
+        {
+            firstChoiceIndex = -1;
+            secondChoiceIndex = -1;
+        }
+
+        // Kontrollera om alla par är funna
+        private bool AllMatched()
+        {
+            return buttons.All(button => !button.Visible);
+        }
