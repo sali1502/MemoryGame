@@ -45,7 +45,7 @@ namespace MemoGameProjekt
             Shuffle(images); // Blanda kort (bilder) slumpmässigt
         }
 
-// Ladda bilder för spelet
+        // Ladda bilder för spelet
         private void LoadImages()
         {
             try
@@ -177,7 +177,7 @@ namespace MemoGameProjekt
             return buttons.All(button => !button.Visible);
         }
 
-// Återställ spelet för en ny omgång
+        // Återställ spelet för en ny omgång
         private void ResetGame()
         {
             foreach (Button button in buttons)
@@ -189,4 +189,27 @@ namespace MemoGameProjekt
             Shuffle(images); // Blanda korten igen
             turns = 0;
             ClearChoices();
+        }
+
+        // Visa topplistan med namn och med sortering efter minst antal försök
+        private void DisplayHighScores()
+        {
+            if (highScoreLabel == null) return;
+            highScoreLabel.Text = "Topplista:\n";
+            foreach (var score in highScores.OrderBy(s => s.Turns))
+            {
+                highScoreLabel.Text += $"{score.PlayerName}: {score.Turns} försök\n";
+            }
+            highScoreLabel.Visible = true; // Visa topplistan
+        }
+
+        // Rensa topplistan
+        private void ClearScoresButton_Click(object sender, EventArgs e)
+        {
+            highScores.Clear();
+            if (highScoreLabel != null)
+            {
+                highScoreLabel.Text = "Topplista:\n";
+            }
+            MessageBox.Show("Topplistan har rensats.");
         }
