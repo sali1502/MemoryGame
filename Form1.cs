@@ -25,7 +25,7 @@ namespace MemoGameProjekt
             InitializeComponent(); // Initierar konfiguration UI-komponenter från Form1.Designer.cs
         }
 
-        // Startar spelet
+        // Starta spelet
         private void StartButton_Click(object sender, EventArgs e)
         {
             InitializeGame();
@@ -44,12 +44,13 @@ namespace MemoGameProjekt
             CreateButtons(); // Skapa knappar
             Shuffle(images); // Blanda kort (bilder) slumpmässigt
         }
-// Laddar bilder för spelet
+
+// Ladda bilder för spelet
         private void LoadImages()
         {
             try
             {
-                // Laddar in bilder för varje kortpar
+                // Ladda in bilder för varje kortpar
                 images[0] = Image.FromFile("Images/earth.jpg");
                 images[1] = Image.FromFile("Images/venus.jpg");
                 images[2] = Image.FromFile("Images/mars.jpg");
@@ -59,7 +60,7 @@ namespace MemoGameProjekt
                 images[6] = Image.FromFile("Images/neptune.jpg");
                 images[7] = Image.FromFile("Images/meteor.jpg");
 
-                // Skapar par genom att duplicera bilder
+                // Skapa par genom att duplicera bilder
                 for (int i = 0; i < NUM_PAIRED_CARDS; i++)
                 {
                     images[i + NUM_PAIRED_CARDS] = images[i];
@@ -71,16 +72,16 @@ namespace MemoGameProjekt
             }
         }
 
-        // Skapar knapparna för korten på spelformen
+        // Skapar knapparna för korten som gör att de kan vändas
         private void CreateButtons()
         {
-            int size = 100; // Knapparnas storlek
+            int size = 100;
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i] = new Button
                 {
                     Size = new Size(size, size),
-                    Location = new Point((i % 4) * size, (i / 4) * size + 50), // Placering i ett 4x4-rutnät
+                    Location = new Point((i % 4) * size, (i / 4) * size + 50), // Placering i ett 4 x 4-rutnät
                     BackColor = Color.LightSteelBlue,
                     Tag = i // Varje knapp får ett index för att kunna identifieras
                 };
@@ -102,12 +103,12 @@ namespace MemoGameProjekt
             }
         }
 
-        // Metod för när en knapp (ett kort) klickas
+        // Metod för när en knapp (ett kort/bild) klickas
         private async void Button_Click(object? sender, EventArgs e)
         {
             if (sender is Button clickedButton && clickedButton.Tag is int index)
             {
-                // Första valda kortet
+                // Det första valda kortet
                 if (firstChoiceIndex == -1)
                 {
                     firstChoiceIndex = index;
@@ -115,7 +116,7 @@ namespace MemoGameProjekt
                     clickedButton.BackgroundImageLayout = ImageLayout.Zoom;
                     clickedButton.Enabled = false; // Inaktivera knappen temporärt
                 }
-                // Andra valda kortet
+                // Det andra valda kortet
                 else if (secondChoiceIndex == -1 && index != firstChoiceIndex)
                 {
                     secondChoiceIndex = index;
@@ -170,8 +171,22 @@ namespace MemoGameProjekt
             secondChoiceIndex = -1;
         }
 
-        // Kontrollera om alla par är funna
+        // Kontrollera om alla par har hittats
         private bool AllMatched()
         {
             return buttons.All(button => !button.Visible);
+        }
+
+// Återställ spelet för en ny omgång
+        private void ResetGame()
+        {
+            foreach (Button button in buttons)
+            {
+                button.Visible = true;
+                button.BackgroundImage = null;
+                button.Enabled = true;
+            }
+            Shuffle(images); // Blanda korten igen
+            turns = 0;
+            ClearChoices();
         }
