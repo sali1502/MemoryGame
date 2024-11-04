@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* DT071G Programmering i C#.NET Projektuppgift. Åsa Lindskog sali1502@student.miun.se */
+/* En memoryspel med topplista baserat på antal försök att matcha bildpar. */
+
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -39,6 +42,7 @@ namespace MemoryGame
             };
             Controls.Add(playerNameTextBox);
 
+            // Knapp för att starta spelet
             startButton = new Button
             {
                 Text = "Börja Spela",
@@ -81,7 +85,7 @@ namespace MemoryGame
             playAgainButton.Click += PlayAgainButton_Click;
             Controls.Add(playAgainButton);
 
-            // inställningar för Form1 (spelfönstret)
+            // inställningar för spelfönstret
             ClientSize = new Size(400, 460);
             Name = "Form1";
             Text = "Välkommen till Memory Game!";

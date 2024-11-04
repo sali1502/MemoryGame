@@ -1,3 +1,6 @@
+/* DT071G Programmering i C#.NET Projektuppgift. Åsa Lindskog sali1502@student.miun.se */
+/* En memoryspel med topplista baserat på antal försök att matcha bildpar. */
+
 using System;
 using System.Collections.Generic;
 using System.Drawing;
