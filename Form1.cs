@@ -213,3 +213,33 @@ namespace MemoGameProjekt
             }
             MessageBox.Show("Topplistan har rensats.");
         }
+
+        // Återställ spelet
+        private void PlayAgainButton_Click(object sender, EventArgs e)
+        {
+            ResetGame();
+            if (playerNameTextBox != null)
+                playerNameTextBox.Enabled = true;
+
+            if (startButton != null)
+                startButton.Visible = false;
+
+            if (highScoreLabel != null)
+                highScoreLabel.Visible = false;
+
+            if (clearScoresButton != null)
+                clearScoresButton.Visible = false;
+
+            if (playAgainButton != null)
+                playAgainButton.Visible = false;
+        }
+
+        // Visa knappar för topplista och spela igen efter avslutat spel
+        private void EnableScoreButtons()
+        {
+            if (highScoreLabel != null) highScoreLabel.Visible = true;
+            if (clearScoresButton != null) clearScoresButton.Visible = true;
+            if (playAgainButton != null) playAgainButton.Visible = true;
+        }
+    }
+}
