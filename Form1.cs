@@ -25,7 +25,7 @@ namespace MemoryGame
 
         public Form1()
         {
-            InitializeComponent(); // Initierar konfiguration av UI-komponenter
+            InitializeComponent(); // Initiera konfiguration av UI-komponenter
         }
 
         // Starta spelet
@@ -75,7 +75,7 @@ namespace MemoryGame
             }
         }
 
-        // Skapa knappar för korten som gör att de kan vändas
+        // Skapa "osynliga" knappar för de sexton fälten (baksidan av korten/bilderna) och ge var och en ett unikt index
         private void CreateButtons()
         {
             int size = 100;
@@ -88,8 +88,8 @@ namespace MemoryGame
                     BackColor = Color.LightSteelBlue,
                     Tag = i // Varje knapp får ett index för att kunna identifieras
                 };
-                buttons[i].Click += Button_Click; // Kopplar en klickhändelse till knappen
-                Controls.Add(buttons[i]); // Lägger till knappen i formuläret
+                buttons[i].Click += Button_Click; // Koppla en klickhändelse till knappen
+                Controls.Add(buttons[i]); // Lägga till knappen i formuläret
             }
         }
 
@@ -106,7 +106,7 @@ namespace MemoryGame
             }
         }
 
-        // Metod för när en knapp (ett kort/bild) klickas
+        // Metod för när en knapp (fält/kort/bild) klickas på och vänds upp
         private async void Button_Click(object? sender, EventArgs e)
         {
             if (sender is Button clickedButton && clickedButton.Tag is int index)
@@ -194,7 +194,7 @@ namespace MemoryGame
             ClearChoices();
         }
 
-        // Visa topplistan med namn ordnat efter minst antal försök
+        // Visa topplista med namn ordnat efter minst antal försök
         private void DisplayHighScores()
         {
             if (highScoreLabel == null) return;
@@ -203,10 +203,10 @@ namespace MemoryGame
             {
                 highScoreLabel.Text += $"{score.PlayerName}: {score.Turns} försök\n";
             }
-            highScoreLabel.Visible = true; // Visa topplistan
+            highScoreLabel.Visible = true; // Visa topplista
         }
 
-        // Rensa topplistan
+        // Rensa topplista
         private void ClearScoresButton_Click(object sender, EventArgs e)
         {
             highScores.Clear();

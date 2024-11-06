@@ -28,7 +28,7 @@ namespace MemoryGame
             base.Dispose(disposing);
         }
 
-        // Metod för att initiera och konfigurera UI (User Interface)-komponenter
+        // Metod för att initiera och konfigurera UI-komponenter
         private void InitializeComponent()
         {
             SuspendLayout();
