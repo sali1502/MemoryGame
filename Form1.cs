@@ -25,7 +25,7 @@ namespace MemoryGame
 
         public Form1()
         {
-            InitializeComponent(); // Initierar konfiguration UI-komponenter från Form1.Designer.cs
+            InitializeComponent(); // Initierar konfiguration av UI-komponenter
         }
 
         // Starta spelet
@@ -44,7 +44,7 @@ namespace MemoryGame
         private void InitializeGame()
         {
             LoadImages(); // Ladda kort (bilder)
-            CreateButtons(); // Skapa knappar
+            CreateButtons(); // Skapa knappar - klickbar baksida för att vända kort (bild)
             Shuffle(images); // Blanda kort (bilder) slumpmässigt
         }
 
@@ -71,11 +71,11 @@ namespace MemoryGame
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading images: " + ex.Message);
+                MessageBox.Show("Error ladding av bilder: " + ex.Message);
             }
         }
 
-        // Skapar knapparna för korten som gör att de kan vändas
+        // Skapa knappar för korten som gör att de kan vändas
         private void CreateButtons()
         {
             int size = 100;
@@ -194,7 +194,7 @@ namespace MemoryGame
             ClearChoices();
         }
 
-        // Visa topplistan med namn och med sortering efter minst antal försök
+        // Visa topplistan med namn ordnat efter minst antal försök
         private void DisplayHighScores()
         {
             if (highScoreLabel == null) return;

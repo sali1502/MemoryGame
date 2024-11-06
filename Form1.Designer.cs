@@ -11,12 +11,12 @@ namespace MemoryGame
     {
         private System.ComponentModel.IContainer components = null;
 
-        // Komponenter för UI (User Interface)
+        // Variabler - fält och komponenter för användargränssnitt (UI - User Interface)
         private TextBox playerNameTextBox; // Inputfält för spelarens namn
-        private Button startButton;
+        private Button startButton; // Starta spelet
         private Label highScoreLabel; // Visa topplista
-        private Button clearScoresButton; //Rensa topplista
-        private Button playAgainButton; // Starta om spelet
+        private Button clearScoresButton; // Rensa topplista
+        private Button playAgainButton; // Spela igen
 
         // Metod för att frigöra resurser som används av komponenter
         protected override void Dispose(bool disposing)
@@ -45,7 +45,7 @@ namespace MemoryGame
             // Knapp för att starta spelet
             startButton = new Button
             {
-                Text = "Börja Spela",
+                Text = "Börja spela",
                 Location = new Point(170, 10),
                 Width = 100
             };
@@ -66,7 +66,7 @@ namespace MemoryGame
             // Knapp för att rensa topplista
             clearScoresButton = new Button
             {
-                Text = "Rensa Topplista",
+                Text = "Rensa topplista",
                 Location = new Point(10, 360),
                 Width = 120,
                 Visible = false

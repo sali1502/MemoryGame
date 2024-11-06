@@ -5,7 +5,7 @@ using MemoryGame;
 using System;
 using System.Windows.Forms;
 
-// Starta applikationen och spelfönster
+// Starta applikationen och öppna spelfönstret (Form1)
 namespace MemoryGame
 {
     static class Program
