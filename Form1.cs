@@ -174,7 +174,7 @@ namespace MemoryGame
             secondChoiceIndex = -1;
         }
 
-        // Kontrollera om alla par har hittats
+        // Metod för att om alla par har hittats
         private bool AllMatched()
         {
             return buttons.All(button => !button.Visible);
@@ -194,7 +194,7 @@ namespace MemoryGame
             ClearChoices();
         }
 
-        // Visa topplista med namn ordnat efter minst antal försök
+        // Visa topplista med namn ordnad efter minst antal försök
         private void DisplayHighScores()
         {
             if (highScoreLabel == null) return;
