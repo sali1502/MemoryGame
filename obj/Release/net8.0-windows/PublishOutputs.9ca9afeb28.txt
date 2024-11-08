@@ -1,0 +1,5 @@
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\publish\MemoryGame.exe
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\publish\MemoryGame.dll
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\publish\MemoryGame.deps.json
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\publish\MemoryGame.runtimeconfig.json
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\publish\MemoryGame.pdb

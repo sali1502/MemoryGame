@@ -1,0 +1,15 @@
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\MemoryGame.exe
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\MemoryGame.deps.json
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\MemoryGame.runtimeconfig.json
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\MemoryGame.dll
+C:\DT071G_Projektuppgift\MemoryGame\bin\Release\net8.0-windows\MemoryGame.pdb
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\MemoryGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\MemoryGame.AssemblyInfoInputs.cache
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\MemoryGame.AssemblyInfo.cs
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\MemoryGame.csproj.CoreCompileInputs.cache
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\MemoryGame.sourcelink.json
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\MemoryGame.dll
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\refint\MemoryGame.dll
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\MemoryGame.pdb
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\MemoryGame.genruntimeconfig.cache
+C:\DT071G_Projektuppgift\MemoryGame\obj\Release\net8.0-windows\ref\MemoryGame.dll
